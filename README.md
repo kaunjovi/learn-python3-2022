@@ -37,8 +37,21 @@ Pyenv is used to manage different Python versions, whereas Pipenv is used to man
 
 ## pipenv 
 
+- Use pipenv to create a virtual environment, download dependencies locally and manage them as well. 
+
+```batch
 brew install pipenv
 pipenv install --python 3.10.2
+pipenv install flake8 --dev
+pipenv shell 
+python hello-world.py
+exit 
+pipenv uninstall flake8
+pipenv --rm
+```
+
+## How to show hidden files in mac 
+- Cmd + Shift + .
 
 
 ## Unit testing in Python 
