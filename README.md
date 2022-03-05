@@ -38,6 +38,8 @@ Pyenv is used to manage different Python versions, whereas Pipenv is used to man
 ## pipenv 
 
 - Use pipenv to create a virtual environment, download dependencies locally and manage them as well. 
+- Create the folder for your project and in it create the .venv folder and Pipfile file. 
+- cd to your project folder and try the following commands. 
 
 ```batch
 brew install pipenv
