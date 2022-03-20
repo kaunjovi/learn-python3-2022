@@ -47,10 +47,17 @@ pipenv install --python 3.10.2
 pipenv install flake8 --dev
 pipenv shell 
 python hello-world.py
-exit 
+exit    
 pipenv uninstall flake8
 pipenv --rm
 ```
+
+print("Hello, World!")
+
+## variable_name 
+
+my_string = "Hello, World!"
+print(my_string)
 
 ## How to show hidden files in mac 
 - Cmd + Shift + .
@@ -60,4 +67,34 @@ pipenv --rm
 
 - [Unit Testing in Python Tutorial](https://www.datacamp.com/community/tutorials/unit-testing-python)
 - [Getting Started With Testing in Python](https://realpython.com/python-testing/)
+
+
+## Minimum Path Sum
+- [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)
+
+```python
+class Solution:
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        
+```
+
+## self 
+
+- self is an object like any other and may be used in any context 
+- Self is always pointing to Current Object.
+
+## Naming convention 
+
+- A Python package is directory of Python module(s) / files(s)
+    - Packages should also have short, all-lowercase names, although the use of underscores is discouraged.
+- Module is simply a Python source file, which can expose classes, functions and global variables.
+    - Modules should have short, all-lowercase names. 
+    - Underscores can be used in the module name if it improves readability.
+- Class names should normally use the CapWords convention
+
+```batch
+import mypackage.my_module
+from mypackage.my_module import MyClass 
+from mypackage.my_module import my_method
+```
 
