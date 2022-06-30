@@ -21,8 +21,6 @@ python --version
 Python 2.7.16
 
 pyenv global 3.10.2
-
-
 ```
 
 This did not work. Lets 
@@ -97,4 +95,9 @@ import mypackage.my_module
 from mypackage.my_module import MyClass 
 from mypackage.my_module import my_method
 ```
+
+## https://www.youtube.com/watch?v=s8XjEuplx_U
+
+## https://www.youtube.com/watch?v=PXMJ6FS7llk
+
 
