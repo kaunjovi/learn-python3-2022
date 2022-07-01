@@ -7,6 +7,8 @@ name = "pypi"
 requests = "*"
 pandas = "*"
 lxml = "*"
+html5lib = "*"
+beautifulsoup4 = "*"
 
 [dev-packages]
 flake8 = "*"

@@ -12,11 +12,4 @@
 # kaunjovi@devbook learn-python3-2022 % prp hello-world.py 
 # Hello world from Python 3
 
-import pandas as pd 
-
-simpsons = pd.read_html("https://en.wikipedia.org/wiki/List_of_The_Simpsons_episodes")
-
-print(f"{len(simpsons)}")
-
-
-# print(f"Hello world from Python 3")
+print(f"Hello world from Python 3")
