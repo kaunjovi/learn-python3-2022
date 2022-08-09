@@ -100,4 +100,28 @@ from mypackage.my_module import my_method
 
 ## https://www.youtube.com/watch?v=PXMJ6FS7llk
 
+```
+cd my_project
+pipenv --three
+pipenv run which python
+
+pipenv install
+pipenv uninstall beautifulsoup4
+pipenv lock
+pipenv install
+pipenv install --dev
+pipenv install coverage --dev
+-- unit testing frameworks 
+pipenv install --dev nose2 
+
+-- test coverage 
+
+-- web scraping 
+pipenv install beautifulsoup4   
+
+
+-- run your project 
+-- prp is the same as pipenv run python 
+pipenv run python my_project.py
+```
 
