@@ -125,3 +125,15 @@ pipenv install beautifulsoup4
 pipenv run python my_project.py
 ```
 
+## What is the version of python in my mac. 
+
+```code 
+kaunjovi@devbook learn-python3-2022 % python --version 
+Python 2.7.16
+```
+
+- Why is it 2.7.16 ? 
+- Do we need to have python 3 for Mac ? 
+- Or should we leave it pipenv ? 
+
+
