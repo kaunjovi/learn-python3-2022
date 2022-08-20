@@ -4,14 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "*"
-pandas = "*"
-lxml = "*"
-html5lib = "*"
-beautifulsoup4 = "*"
 
 [dev-packages]
-flake8 = "*"
 
 [requires]
 python_version = "3.10"
