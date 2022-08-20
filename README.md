@@ -156,6 +156,17 @@ kaunjovi@devbook learn-python3-2022 % pipenv --version
 pipenv, version 2022.8.19
 
 
+kaunjovi@devbook learn-python3-2022 % export PIPENV_VENV_IN_PROJECT=1
+
+kaunjovi@devbook learn-python3-2022 % pipenv --three 
+Creating a virtualenv for this project...
+Pipfile: /Users/kaunjovi/code/learn-python3-2022/Pipfile
+...
+
+kaunjovi@devbook learn-python3-2022 % pipenv run python --version 
+Python 3.9.13
+
+
 
 ```
 
