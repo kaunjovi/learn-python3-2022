@@ -125,16 +125,40 @@ pipenv install beautifulsoup4
 pipenv run python my_project.py
 ```
 
-## What is the version of python in my mac. 
+## Python dev setup on Mac. Python3. Pip3.  
+
+- Mac has both Python 2 and 3. 
+- It needs Python 2 for its own stuff. 
+- We need Python 3 for coding projects. 
 
 ```code 
 kaunjovi@devbook learn-python3-2022 % python --version 
 Python 2.7.16
+
+kaunjovi@devbook learn-python3-2022 % python3 --version 
+Python 3.9.13
+
+kaunjovi@devbook learn-python3-2022 % where python3
+/usr/local/bin/python3
+/usr/local/bin/python3
+/usr/bin/python3
+
+kaunjovi@devbook learn-python3-2022 % python3 -m pip install pip --upgrade
+... 
+
+kaunjovi@devbook learn-python3-2022 % pip3 --version 
+pip 22.2.2 from /usr/local/lib/python3.9/site-packages/pip (python 3.9)
+
+kaunjovi@devbook learn-python3-2022 % pip3 install pipenv --upgrade
+...
+
+kaunjovi@devbook learn-python3-2022 % pipenv --version 
+pipenv, version 2022.8.19
+
+
+
 ```
 
-- Why is it 2.7.16 ? 
-- Do we need to have python 3 for Mac ? 
-- Or should we leave it pipenv ? 
 - https://newdevzone.com/posts/how-to-use-pipenv-on-mac - there is some longish steps involving some .zhrc file. 
 
 ## What is .zhrc file? 
