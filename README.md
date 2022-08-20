@@ -135,5 +135,17 @@ Python 2.7.16
 - Why is it 2.7.16 ? 
 - Do we need to have python 3 for Mac ? 
 - Or should we leave it pipenv ? 
+- https://newdevzone.com/posts/how-to-use-pipenv-on-mac - there is some longish steps involving some .zhrc file. 
 
+## What is .zhrc file? 
+- zshrc file is used to configure your terminal prompt if you're using zsh (z-shell) login shell 
+- If you're using a standard OSX terminal, then you're probably using bash (the BASH Shell)
 
+## What is the terminal shelll I am running on mac ? 
+- Every Mac comes with a Unix shell that provides a command line interface. 
+- Macs running macOS 10.15 and later use Zsh by default.
+
+```code 
+kaunjovi@devbook learn-python3-2022 % echo $0
+-zsh
+```
