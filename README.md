@@ -209,3 +209,45 @@ bhav_copy.py .                                                                  
 
 
 ```
+
+- Run the test 
+- Measure coverage 
+- Show a html report that can be clicked through 
+
+```code 
+coverage run -m pytest bhav_copy.py && coverage report -m && coverage html
+```
+
+
+One possibility is using pytest-testmon together with pytest-watch.
+
+https://johnfraney.ca/blog/pytest-watched-failed-tests/
+
+ptw -- --last-failed --new-first
+ptw tests/fruit/raspberry -- --last-failed --new-first
+ptw tests/fruit/raspberry app -- --last-failed --new-first
+
+
+## pytest-testmon
+https://github.com/tarpas/pytest-testmon/
+pytest plug-in which automatically selects and re-executes only tests affected by recent changes.
+
+pip install pytest-testmon
+
+pytest --testmon
+
+Change code 
+
+pytest --testmon
+
+## pytest-watch 
+
+```code 
+pipenv install pytest-watch --dev
+ptw 
+```
+
+
+
+
+

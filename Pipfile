@@ -9,6 +9,8 @@ requests = "*"
 
 [dev-packages]
 pytest = "*"
+coverage = "*"
+pytest-watch = "*"
 
 [requires]
 python_version = "3.10"
