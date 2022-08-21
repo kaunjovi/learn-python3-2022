@@ -1,3 +1,7 @@
 .DS_Store
 .venv
 data_files/
+
+.pytest_cache/ 
+.coverage 
+htmlcov/
