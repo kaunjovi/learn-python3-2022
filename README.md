@@ -61,10 +61,6 @@ print(my_string)
 - Cmd + Shift + .
 
 
-## Unit testing in Python 
-
-- [Unit Testing in Python Tutorial](https://www.datacamp.com/community/tutorials/unit-testing-python)
-- [Getting Started With Testing in Python](https://realpython.com/python-testing/)
 
 
 ## Minimum Path Sum
@@ -183,4 +179,22 @@ Python 3.9.13
 ```code 
 kaunjovi@devbook learn-python3-2022 % echo $0
 -zsh
+```
+
+## Unit testing in Python 
+
+- [Unit Testing in Python Tutorial](https://www.datacamp.com/community/tutorials/unit-testing-python)
+- [Getting Started With Testing in Python](https://realpython.com/python-testing/)
+- https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/
+- PyUnit, PyTest 
+- pytest +, 
+
+```code 
+-- unit testing frameworks 
+pipenv install --dev nose2 
+
+-- test coverage 
+
+pipenv install pytest --dev
+
 ```
