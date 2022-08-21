@@ -246,8 +246,12 @@ pytest --testmon
 pipenv install pytest-watch --dev
 ptw 
 ptw -- --last-failed --new-first
-```
 
+ptw -- --testmon
+ptw -- --testmon --cov=.
+ptw -- --testmon --cov=.  --cov-report html
+ptw -- --testmon --cov=.  --cov-report html --cov-report term
+```
 
 
 
