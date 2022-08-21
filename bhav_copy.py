@@ -65,6 +65,12 @@ def execute (date_of_data):
     return 0
 
 if __name__ == "__main__": 
-    execute("21082022")
+    execute("15082022")
+    ## what is happening here. 
+
+
+
+
+    
 
     

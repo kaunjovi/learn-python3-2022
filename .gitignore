@@ -4,4 +4,5 @@ data_files/
 
 .pytest_cache/ 
 .coverage 
+.testmondata
 htmlcov/

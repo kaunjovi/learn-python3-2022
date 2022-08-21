@@ -6,11 +6,13 @@ name = "pypi"
 [packages]
 pandas = "*"
 requests = "*"
+pytest-cov = "*"
 
 [dev-packages]
 pytest = "*"
 coverage = "*"
 pytest-watch = "*"
+pytest-testmon = "*"
 
 [requires]
 python_version = "3.10"
