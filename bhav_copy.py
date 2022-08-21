@@ -7,9 +7,12 @@ def download_bhav_copy( bhav_copy_local, bhav_copy_url) :
     if (not os.path.exists(bhav_copy_local)): 
         print(f"{ bhav_copy_local } not found. Will attempt download of { bhav_copy_url }")
 
+    try: 
         req = requests.get( bhav_copy_url , timeout=2)  
         with open(bhav_copy_local, "wb+") as output_file : 
             output_file.write(req.content)
+    except : 
+        print(f"There was some exception while downloading from {bhav_copy_url}.")
     
     if (os.path.exists(bhav_copy_local)) : 
         print(f"{bhav_copy_local} successfully downloaded.")
