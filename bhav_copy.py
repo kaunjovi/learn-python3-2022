@@ -2,15 +2,22 @@ import pandas as pd
 import os.path
 import requests 
 
+
 def download_bhav_copy( bhav_copy_local, bhav_copy_url) : 
     if (not os.path.exists(bhav_copy_local)): 
         print(f"{ bhav_copy_local } not found. Will attempt download of { bhav_copy_url }")
 
-        req = requests.get( bhav_copy_url )  
+        req = requests.get( bhav_copy_url , timeout=2)  
         with open(bhav_copy_local, "wb+") as output_file : 
             output_file.write(req.content)
-
-        print(f"{bhav_copy_local} was downloaded")
+    
+    if (os.path.exists(bhav_copy_local)) : 
+        print(f"{bhav_copy_local} successfully downloaded.")
+        return True
+    else : 
+        print(f"{bhav_copy_local} could not be downloaded.")
+        return False
+        
 
 def prepare_bhav_data(bhav_copy_local, bhav_copy_file_2, date_of_data) :
     df = pd.read_csv(bhav_copy_local) 
@@ -24,6 +31,8 @@ def prepare_bhav_data(bhav_copy_local, bhav_copy_file_2, date_of_data) :
     df['DELIV_LACS'] = df['DELIV_LACS'].astype('int64')
     df['DELIV_PER'] = df['DELIV_PER'].astype(float)
     df.to_csv(bhav_copy_file_2, mode='w+', index = False)
+
+    print(f"{bhav_copy_file_2} successfully created.")
     
 
 def execute (date_of_data): 
@@ -56,6 +65,6 @@ def execute (date_of_data):
     return 0
 
 if __name__ == "__main__": 
-    execute("19082021")
+    execute("21082022")
 
     
