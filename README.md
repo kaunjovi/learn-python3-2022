@@ -245,6 +245,7 @@ pytest --testmon
 ```code 
 pipenv install pytest-watch --dev
 ptw 
+ptw -- --last-failed --new-first
 ```
 
 
