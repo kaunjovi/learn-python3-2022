@@ -1,7 +1,6 @@
 import pandas as pd
 import os.path
 import requests 
-import pytest
 
 def download_bhav_copy( bhav_copy_local, bhav_copy_url) : 
     if (not os.path.exists(bhav_copy_local)): 
@@ -56,8 +55,7 @@ def execute (date_of_data):
     # print (df.nlargest(20, 'DELIV_PER'))
     return 0
 
-def test_subtract():
-    assert execute("19082021") == 0
-
 if __name__ == "__main__": 
     execute("19082021")
+
+    
