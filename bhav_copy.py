@@ -1,9 +1,15 @@
 import pandas as pd
 import os.path
 import requests 
+from configurations import KuberConf
 
 
-def download_bhav_copy( bhav_copy_local, bhav_copy_url) : 
+def download_bhav_copy( date_of_data ) : 
+    
+    conf = KuberConf(date_of_data)
+    bhav_copy_local = conf.bhav_copy_local
+    bhav_copy_url = conf.bhav_copy_url
+    
     if (not os.path.exists(bhav_copy_local)): 
         print(f"{ bhav_copy_local } not found. Will attempt download of { bhav_copy_url }")
 
@@ -22,33 +28,41 @@ def download_bhav_copy( bhav_copy_local, bhav_copy_url) :
         return False
         
 
-def prepare_bhav_data(bhav_copy_local, bhav_copy_file_2, date_of_data) :
-    df = pd.read_csv(bhav_copy_local) 
-    df.columns = df.columns.str.strip()
-    df['SERIES'] = df['SERIES'].str.strip()
-    df['DELIV_PER'] = df['DELIV_PER'].str.strip()
-    df = df.loc[df['SERIES'] == 'EQ']
-    df.insert(0, "DATE", date_of_data)
-    df['DELIV_QTY'] = df['DELIV_QTY'].astype(float)
-    df['DELIV_LACS'] = (df['DELIV_QTY'] * df['AVG_PRICE'])/100_000
-    df['DELIV_LACS'] = df['DELIV_LACS'].astype('int64')
-    df['DELIV_PER'] = df['DELIV_PER'].astype(float)
-    df.to_csv(bhav_copy_file_2, mode='w+', index = False)
+def prepare_bhav_data( date_of_data) :
 
-    print(f"{bhav_copy_file_2} successfully created.")
-    
+    conf = KuberConf(date_of_data)
+    bhav_copy_local = conf.bhav_copy_local
+    bhav_copy_file_2 = conf.bhav_copy_file_2
+
+    if (os.path.exists(bhav_copy_local)) :
+        df = pd.read_csv(bhav_copy_local) 
+        df.columns = df.columns.str.strip()
+        df['SERIES'] = df['SERIES'].str.strip()
+        df['DELIV_PER'] = df['DELIV_PER'].str.strip()
+        df = df.loc[df['SERIES'] == 'EQ']
+        df.insert(0, "DATE", date_of_data)
+        df['DELIV_QTY'] = df['DELIV_QTY'].astype(float)
+        df['DELIV_LACS'] = (df['DELIV_QTY'] * df['AVG_PRICE'])/100_000
+        df['DELIV_LACS'] = df['DELIV_LACS'].astype('int64')
+        df['DELIV_PER'] = df['DELIV_PER'].astype(float)
+        df.to_csv(bhav_copy_file_2, mode='w+', index = False)
+
+        if (os.path.exists(bhav_copy_file_2)) : 
+            print(f"{bhav_copy_file_2} successfully created.")
+            return True
+        else : 
+            print(f"{bhav_copy_file_2} could not be downloaded.")
+            return False
+    else : 
+        print(f"{bhav_copy_local} is not available.")
+        return False
+
+
 
 def execute (date_of_data): 
 
-    bhav_copy_file = "sec_bhavdata_full_"+date_of_data+".csv"
-    bhav_copy_url = "https://archives.nseindia.com/products/content/" + bhav_copy_file 
-    bhav_copy_local = "./data_files/11_raw_data_bhavcopy/" + bhav_copy_file
-    bhav_copy_file_2= "./data_files/12_data_bhavcopy/" + bhav_copy_file
-    bhav_copy_file_3 = "./data_files/13_top50/" + bhav_copy_file
-
-    download_bhav_copy ( bhav_copy_local , bhav_copy_url)
-
-    df = prepare_bhav_data (bhav_copy_local, bhav_copy_file_2, date_of_data)
+    download_bhav_copy ( date_of_data)
+    df = prepare_bhav_data ( date_of_data)
 
     # print ( df.head() ) 
     df = pd.read_csv(bhav_copy_file_2)

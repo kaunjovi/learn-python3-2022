@@ -1,24 +1,23 @@
 import bhav_copy  
 import os 
+from configurations import KuberConf
 
-def test_download_bhav_copy_success() : 
+def test_happy_path() : 
 
     date_of_data = "19082021"
-    bhav_copy_file = "sec_bhavdata_full_"+date_of_data+".csv"
-    bhav_copy_url = "https://archives.nseindia.com/products/content/" + bhav_copy_file 
-    bhav_copy_local = "./data_files/11_raw_data_bhavcopy/" + bhav_copy_file
+    conf = KuberConf(date_of_data)
 
     # if the file exists, delete it, so that the entire code 
     # path is executed. 
-    if ( os.path.exists(bhav_copy_local)): 
-        os.remove(bhav_copy_local)
+    if ( os.path.exists(conf.bhav_copy_local)): 
+        os.remove(conf.bhav_copy_local)
 
-    assert bhav_copy.download_bhav_copy( bhav_copy_local , bhav_copy_url ), "{date_of_data} should have data."
+    assert bhav_copy.download_bhav_copy( date_of_data ), f"{date_of_data} should have data."
+    assert bhav_copy.prepare_bhav_data(date_of_data), f"{date_of_data} data could not be prepared for the date. "
     
 def test_download_bhav_copy_fail() : 
     date_of_data = "asd"    # a date was expected here. 
-    bhav_copy_file = "sec_bhavdata_full_"+date_of_data+".csv"
-    bhav_copy_url = "https://archives.nseindia.com/products/content/" + bhav_copy_file 
-    bhav_copy_local = "./data_files/11_raw_data_bhavcopy/" + bhav_copy_file
+    conf = KuberConf(date_of_data)
 
-    assert not bhav_copy.download_bhav_copy( bhav_copy_local , bhav_copy_url ), "{asd} should not have data."
+    assert not bhav_copy.download_bhav_copy( date_of_data ), f"{date_of_data} should not have data."
+
