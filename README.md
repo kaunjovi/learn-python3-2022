@@ -197,4 +197,15 @@ pipenv install --dev nose2
 
 pipenv install pytest --dev
 
+kaunjovi@devbook learn-python3-2022 % pipenv run pytest bhav_copy.py
+===================================== test session starts =====================================
+platform darwin -- Python 3.10.2, pytest-7.1.2, pluggy-1.0.0
+rootdir: /Users/kaunjovi/code/learn-python3-2022
+collected 1 item                                                                              
+
+bhav_copy.py .                                                                          [100%]
+
+====================================== 1 passed in 0.34s ======================================
+
+
 ```
