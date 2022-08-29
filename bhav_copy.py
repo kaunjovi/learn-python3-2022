@@ -1,7 +1,7 @@
 import pandas as pd
 import os.path
 import requests 
-from configurations import KuberConf
+from kuber_configurations import KuberConf
 
 
 def download_bhav_copy( date_of_data ) : 
@@ -64,6 +64,11 @@ def execute (date_of_data):
     download_bhav_copy ( date_of_data)
     df = prepare_bhav_data ( date_of_data)
 
+    conf = KuberConf(date_of_data)
+    bhav_copy_file_3 = conf.bhav_copy_file_3
+    bhav_copy_file_2 = conf.bhav_copy_file_2
+
+
     # print ( df.head() ) 
     df = pd.read_csv(bhav_copy_file_2)
     print("##############################################################################")
@@ -82,10 +87,25 @@ def execute (date_of_data):
     return 0
 
 if __name__ == "__main__": 
-    execute("15082022")
-    ## what is happening here. 
+    aprl_1 = ["01082022", "02082022", "03082022", "04082022", "05082022" ]
+    mkt_dates = aprl_1
 
+    for mkt_date in mkt_dates : 
+        execute( mkt_date )
 
+    li = [] 
+
+    for mkt_date in mkt_dates : 
+        conf = KuberConf(mkt_date)
+        bhav_copy_file_3 = conf.bhav_copy_file_3
+
+        df = pd.read_csv(bhav_copy_file_3, index_col=None, header=0, usecols=["SYMBOL"])
+        li.append(df)
+
+    # count = pd.Series(li).value_counts()
+    frame = pd.concat(li, axis=0, ignore_index=True)
+    
+    print(frame["SYMBOL"].value_counts())
 
 
     

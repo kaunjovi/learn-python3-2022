@@ -1,6 +1,6 @@
 import bhav_copy  
 import os 
-from configurations import KuberConf
+from kuber_configurations import KuberConf
 
 def test_happy_path() : 
 

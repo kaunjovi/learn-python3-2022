@@ -7,6 +7,10 @@ class KuberConf :
         self.bhav_copy_local = "./data_files/11_raw_data_bhavcopy/" + self.bhav_copy_file
         self.bhav_copy_file_2= "./data_files/12_data_bhavcopy/" + self.bhav_copy_file
         self.bhav_copy_file_3 = "./data_files/13_top50/" + self.bhav_copy_file
+    
+    def get_topLacs_folder() : 
+        # Pick it from a kuber.conf file. 
+        return "./data_files/13_top50/"
 
 # if __name__ == "__main__" : 
 #     conf = KuberConf("01012022")
